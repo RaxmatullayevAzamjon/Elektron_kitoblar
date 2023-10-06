@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <br>
+    <h1>Barcha kitoblar ro'yxati</h1>
+    <br>
+    <br>
+    <hr>
+    {% for kitob in kitoblar %}
+    <h1>{{kitob.id}}. {{kitob.nom}}</h1>
+    <h1>Bo'lim: {{kitob.bolim}} Muallif: {{kitob.muallif}}</h1>
+    {% endfor %}
+    <br>
+    <br>
+    <form method="post">{% csrf_token %}
+       <label>Nom: </label>
+        <input type="text" name="n">
+        <select name="m">
+            {% for muallif in mualliflar %}
+            <option value="{{muallid.id}}">{{muallif.ism}}</option>
+            {% endfor %}
+        </select>
+        <label>Yili: </label>
+        <input type="number" name="y">
+        <select name="b">
+            {% for bolim in bolimlar %}
+            <option value="{{bolim.id}}">{{bolim.nom}}</option>
+            {% endfor %}
+        </select>
+        <select name="u">
+            {% for user in userlar %}
+            <option value="{{user.id}}">{{user.username}}</option>
+            {% endfor %}
+        </select>
+        <label>Rasm: </label>
+        <input type="file" name="r">
+        <br>
+        <br>
+        <br>
+        <button type="submit">Qo'shish</button>
+    </form>
+</body>
+</html>

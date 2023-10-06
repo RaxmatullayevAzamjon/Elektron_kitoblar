@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <br>
+    <br>
+    <h1>Tirik Mualliflar Kitobi</h1>
+    <br>
+    <br>
+    <hr>
+    {% for kitob in kitoblar %}
+    <h1>{{kitob.id}}. {{kitob.nom}}</h1>
+    <h1>Muallif: {{kitob.muallif.tirik}}</h1>
+    {% endfor %}
+</body>
+</html>
